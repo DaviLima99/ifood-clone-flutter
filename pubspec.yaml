@@ -28,6 +28,10 @@ flutter:
 
   assets:
     - "assets/icons/"
+    - "assets/icons/bottom/"
+    - "assets/icons/ordenation/"
+    - "assets/images/"
+    - "assets/images/categories/"
 
   
   # fonts:
