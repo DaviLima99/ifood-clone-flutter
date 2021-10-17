@@ -11,6 +11,12 @@ class AppTypography {
     );
   }
 
+  static TextStyle bodyTextSmall(BuildContext context) {
+    return Theme.of(context).textTheme.bodyText1!.copyWith(
+      fontSize: 12,
+    );
+  }
+
   static TextStyle tabBarStyle(BuildContext context) {
     return Theme.of(context).textTheme.bodyText1!.copyWith(
       color: Colors.black, fontWeight: FontWeight.w600

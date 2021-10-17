@@ -11,7 +11,18 @@ class HeaderLocationComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return SliverPersistentHeader(delegate: _HeaderLocationComponentDelegate(location, MediaQuery.of(context).padding.top));
+  }
+}
 
+class _HeaderLocationComponentDelegate extends SliverPersistentHeaderDelegate {
+  final String location;
+  final double height;
+
+  _HeaderLocationComponentDelegate(this.location, this.height);
+
+  @override
+  Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
     return Column(
       children: [
         SizedBox(
@@ -33,4 +44,16 @@ class HeaderLocationComponent extends StatelessWidget {
       ],
     );
   }
-}
+
+  @override
+  double get maxExtent => height + 40;
+
+  @override
+  double get minExtent => height + 40;
+
+  @override
+  bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) {
+    return false;
+  }
+  
+} 
