@@ -5,6 +5,7 @@ import 'package:ifood/models/category.dart';
 import 'package:ifood/views/content/components/bottom_navigator_component.dart';
 import 'package:ifood/views/content/components/category_item_component.dart';
 import 'package:ifood/views/content/components/content_tab_bar_component.dart';
+import 'package:ifood/views/content/components/filters_component.dart';
 import 'package:ifood/views/content/components/header_local_component.dart';
 
 class ContentPage extends StatefulWidget {
@@ -34,13 +35,15 @@ class _ContentPageState extends State<ContentPage>     with SingleTickerProvider
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: NestedScrollView(
           physics: const BouncingScrollPhysics(),
           headerSliverBuilder: (context, innerBoxScroll) {
             return [
               const HeaderLocationComponent(location: 'Rua Pio XI, 212, São Paulo'),
-              ContentTabBarComponent(controller: tabController, onTap: (index) {})
+              ContentTabBarComponent(controller: tabController, onTap: (index) {}), 
+              FiltersComponent()
             ];
           }, 
           body: Column(
