@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ifood/core/theme/app_colors.dart';
 
 class AppTypography {
   static TextStyle? bodyText(BuildContext context) {
@@ -21,6 +22,13 @@ class AppTypography {
     return Theme.of(context).textTheme.bodyText1!.copyWith(
       color: Colors.black, fontWeight: FontWeight.w600
     );
+  }
+
+  static TextStyle filterItemStyle(BuildContext context) {
+    return Theme.of(context).textTheme.bodyText1!.copyWith(
+        color: AppColors.primaryColor,
+        fontWeight: FontWeight.normal,
+        fontSize: 13);
   }
 
   static TextStyle localTextStyle(BuildContext context) {

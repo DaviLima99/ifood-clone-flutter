@@ -20,37 +20,92 @@ class _FiltersComponentDelegate extends SliverPersistentHeaderDelegate {
 
   @override
   Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
-    return Column(
-      children: [
-        SizedBox(
-          height: MediaQuery.of(context).padding.top,
-        ),
-        Row(
-          children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-              child:  Row(
-                children: [
-                  Text("äsa", style: AppTypography.bodyText(context)),
-                  const AppIcon(AppIcons.arrowDown, size: Size(20, 20), color: AppColors.primaryColor)
-                ],
-              ),
-            )
-          ],
-        )
-      ],
+    return Container(
+      color: Colors.white,
+      height: 54,
+      child: ListView(
+        scrollDirection: Axis.horizontal,
+        children: const [
+          SizedBox(
+            width: 16,
+          ),
+          FilterItemComponent(
+            label: 'Ordenar',
+            icon: AppIcons.arrowDown,
+          ),
+          FilterItemComponent(
+            label: 'Pra Retirar',
+            icon: AppIcons.arrowDown,
+          ),
+          FilterItemComponent(
+            label: 'Entra Grátis',
+          ),
+          FilterItemComponent(
+            label: 'Vale Refeição',
+          ),
+          FilterItemComponent(
+            label: 'Distância',
+            icon: AppIcons.arrowDown,
+          ),
+          FilterItemComponent(
+            label: 'Entrega Parceira',
+            icon: AppIcons.arrowDown,
+          ),
+          FilterItemComponent(
+            label: 'Filtros',
+            icon: AppIcons.arrowDown,
+            
+          ),
+          SizedBox(
+            width: 16,
+          ),
+        ],
+      ),
     );
   }
 
   @override
-  double get maxExtent => height + 40;
+  double get maxExtent => height + 54;
 
   @override
-  double get minExtent => height + 40;
+  double get minExtent => height + 54;
 
   @override
   bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) {
     return false;
   }
   
-} 
+}
+
+class FilterItemComponent extends StatelessWidget {
+  final String label;
+  final String? icon;
+  
+  const FilterItemComponent({ Key? key, required this.label, this.icon }) : super(key: key);
+ 
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(top:  12, bottom: 12, right: 8),
+      child: Container( 
+        decoration: BoxDecoration( 
+          borderRadius: BorderRadius.circular(32),
+          color: Colors.white,
+          border: Border.all(
+            color: AppColors.grey
+          )
+        ),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8),
+          child: Row(
+            children: [
+              Text(label, style: AppTypography.filterItemStyle(context)
+                      .copyWith(color: AppColors.grey)),
+               if (icon != null) AppIcon(icon!, size: const Size(14, 14), color: AppColors.grey)
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}

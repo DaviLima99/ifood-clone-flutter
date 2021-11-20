@@ -30,7 +30,7 @@ class _ContentPageState extends State<ContentPage>     with SingleTickerProvider
     super.initState();
   }
 
-   int _currentIndex = 0;
+  int _currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
