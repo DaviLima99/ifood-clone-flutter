@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:ifood/controllers/content_controller.dart';
 import 'package:ifood/core/theme/app_icons.dart';
+import 'package:ifood/core/theme/app_images.dart';
 import 'package:ifood/models/category.dart';
+import 'package:ifood/views/content/components/banner_component.dart';
 import 'package:ifood/views/content/components/bottom_navigator_component.dart';
 import 'package:ifood/views/content/components/category_item_component.dart';
 import 'package:ifood/views/content/components/content_tab_bar_component.dart';
@@ -10,7 +12,7 @@ import 'package:ifood/views/content/components/header_local_component.dart';
 
 class ContentPage extends StatefulWidget {
   const ContentPage({Key? key}) : super(key: key);
-
+  
   @override
   _ContentPageState createState() => _ContentPageState();
 }
@@ -69,6 +71,17 @@ class _ContentPageState extends State<ContentPage>     with SingleTickerProvider
                             );
                           }
                         )
+                      ),
+                    ),
+                    SliverToBoxAdapter(
+                      child: SizedBox(
+                        height: 180,
+                        child: BannerComponent(itens: [
+                          BannerItemComponent(imagePath: AppImages.banner1),
+                          BannerItemComponent(imagePath: AppImages.banner2),
+                          BannerItemComponent(imagePath: AppImages.banner3),
+                          BannerItemComponent(imagePath: AppImages.banner4),
+                        ],)
                       ),
                     )
                   ],

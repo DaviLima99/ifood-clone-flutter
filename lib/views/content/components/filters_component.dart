@@ -91,8 +91,9 @@ class FilterItemComponent extends StatelessWidget {
         decoration: BoxDecoration( 
           borderRadius: BorderRadius.circular(32),
           color: Colors.white,
-          border: Border.all(
-            color: AppColors.grey
+          border: Border.all( 
+            color: AppColors.grey,  
+            width: 1
           )
         ),
         child: Padding(
